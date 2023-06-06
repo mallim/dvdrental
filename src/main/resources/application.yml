@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: <YOUR_JDBC_URL>
+    username: <YOUR_USERNAME>
+    password: <YOUR_PASSWORD>
+  jpa:
+    show-sql: true
+
+server:
+  port: 8081
+
+logging:
+  level:
+    ROOT: INFO
+    com.mallim: DEBUG

@@ -1,0 +1,23 @@
+package com.mallim.dvdrental.rent.mapper;
+
+import com.mallim.dvdrental.domain.entity.*;
+import com.mallim.dvdrental.rent.RentMovieDto;
+import lombok.RequiredArgsConstructor;
+
+import java.util.Objects;
+
+@RequiredArgsConstructor
+public abstract class RentMapperDecorator implements RentMapper{
+
+    private final RentMapper delegate;
+
+    @Override
+    public Rental toRental( Film film, RentMovieDto rentMovieDto, Customer customer, Payment payment, Staff staff ){
+        Rental result = delegate.toRental(film, rentMovieDto, customer, payment, staff);
+        if( Objects.isNull( result.getPayments() ) ) {
+            result.setPayments( new java.util.ArrayList<>() );
+        }
+        result.getPayments().add( payment );
+        return result;
+    }
+}

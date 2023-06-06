@@ -1,0 +1,8 @@
+POST http://localhost:8081/rent
+Content-Type: application/json
+
+{
+  "customerEmail": "jared.ely@sakilacustomer.org",
+  "numberOfDays": 30,
+  "filmIds": [1, 2, 3]
+}
