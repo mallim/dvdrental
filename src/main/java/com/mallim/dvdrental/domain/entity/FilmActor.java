@@ -1,9 +1,7 @@
 package com.mallim.dvdrental.domain.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -12,6 +10,9 @@ import java.sql.Timestamp;
 @Entity(name = "film_actor")
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString(exclude = {"film", "actor"})
+@Getter
+@Setter(value = AccessLevel.PACKAGE)
 public class FilmActor implements Serializable {
 
     @EmbeddedId

@@ -1,20 +1,19 @@
 package com.mallim.dvdrental.domain.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
-@Data
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @Entity
 @NoArgsConstructor
+@ToString(exclude = {"customer", "rental", "staff"})
+@Getter
+@Setter(value = AccessLevel.PACKAGE)
 public class Payment implements Serializable {
 
     @Id

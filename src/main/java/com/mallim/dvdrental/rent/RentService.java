@@ -26,6 +26,7 @@ public class RentService {
 
     private final StaffRepository staffRepository;
 
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     private final RentMapper rentMapper;
 
     private final PaymentRepository paymentRepository;
@@ -34,9 +35,9 @@ public class RentService {
 
     @Transactional
     public List<Integer> rentFilm(RentMovieDto rentMovieDto) {
-        final var filmList = filmService.findAllByIds(rentMovieDto.getFilmIds());
+        final var filmList = filmService.findAllByIds(rentMovieDto.filmIds());
         final var totalCost = calculateTotalCostOfRent(rentMovieDto, filmList).orElseThrow(RuntimeException::new);
-        final var customer = customerRepository.findByEmail(rentMovieDto.getCustomerEmail()).
+        final var customer = customerRepository.findByEmail(rentMovieDto.customerEmail()).
                 orElseThrow(RuntimeException::new);
         final var staff = staffRepository.findById(1).orElseThrow(RuntimeException::new);
         final Payment.PaymentBuilder payment = rentMapper.toPayment(totalCost, customer, staff).toBuilder();
@@ -55,7 +56,7 @@ public class RentService {
     }
 
     private static Optional<BigDecimal> calculateTotalCostOfRent(RentMovieDto rentMovieDto, List<Film> filmList) {
-        return filmList.stream().map(film -> film.getRentalRate().multiply(BigDecimal.valueOf(rentMovieDto.getNumberOfDays())))
+        return filmList.stream().map(film -> film.getRentalRate().multiply(BigDecimal.valueOf(rentMovieDto.numberOfDays())))
                 .reduce((bigDecimal, bigDecimal2) -> bigDecimal2.add(bigDecimal));
     }
 }

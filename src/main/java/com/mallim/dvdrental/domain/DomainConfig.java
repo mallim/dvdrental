@@ -1,4 +1,4 @@
-package com.mallim.dvdrental.domain.entity;
+package com.mallim.dvdrental.domain;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
