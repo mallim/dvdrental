@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -18,6 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Inventory implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id

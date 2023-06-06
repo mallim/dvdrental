@@ -13,6 +13,7 @@ import java.util.Date;
 @Data
 @Builder(toBuilder = true)
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class City implements Serializable {
 

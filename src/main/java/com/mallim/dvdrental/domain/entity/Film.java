@@ -41,6 +41,7 @@ public class Film implements Serializable {
 
     private Timestamp lastUpdate;
 
+    @SuppressWarnings("JpaAttributeTypeInspection")
     private List<String> specialFeatures;
 
     private String fulltext;
