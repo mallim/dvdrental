@@ -10,6 +10,7 @@ import java.io.Serializable;
 @Data
 @Builder(toBuilder = true)
 @AllArgsConstructor
+@NoArgsConstructor
 public class ActorInfo implements Serializable {
 
     private Long actorId;

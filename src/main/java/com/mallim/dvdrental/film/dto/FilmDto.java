@@ -1,7 +1,9 @@
 package com.mallim.dvdrental.film.dto;
 
-import lombok.*;
-import lombok.extern.jackson.Jacksonized;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.List;

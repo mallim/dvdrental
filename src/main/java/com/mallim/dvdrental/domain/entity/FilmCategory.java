@@ -5,11 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.util.Date;
-
 
 @Builder(toBuilder = true)
 @AllArgsConstructor
@@ -17,6 +15,7 @@ import java.util.Date;
 @Entity(name = "film_category")
 public class FilmCategory implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @EmbeddedId

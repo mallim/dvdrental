@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.Date;
 
 @Builder(toBuilder = true)
 @Entity(name = "film_actor")

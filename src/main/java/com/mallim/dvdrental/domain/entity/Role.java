@@ -13,6 +13,7 @@ import java.io.Serializable;
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @Entity
+@NoArgsConstructor
 public class Role implements Serializable {
 
     @Id

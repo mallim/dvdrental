@@ -6,8 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 @Data
@@ -17,6 +17,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class FilmActorKey implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Column(name="actor_id", insertable=false, updatable=false)

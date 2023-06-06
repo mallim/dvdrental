@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.util.Date;
 
 @Data
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @Entity
+@NoArgsConstructor
 public class Payment implements Serializable {
 
     @Id
