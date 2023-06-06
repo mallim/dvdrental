@@ -1,6 +1,5 @@
 package com.mallim.dvdrental.film;
 
-import com.mallim.dvdrental.domain.repository.FilmListRepository;
 import com.mallim.dvdrental.domain.repository.FilmRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -6,18 +6,20 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Data
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @Entity
+@NoArgsConstructor
 public class Rental implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -32,6 +34,7 @@ public class Rental implements Serializable {
     private Timestamp lastUpdate;
 
     @OneToMany(mappedBy="rental")
+    @Builder.Default
     private List<Payment> payments = new ArrayList<>();
 
     //bi-directional many-to-one association to Customer
