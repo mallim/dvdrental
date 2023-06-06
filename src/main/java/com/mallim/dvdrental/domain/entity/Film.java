@@ -1,21 +1,20 @@
 package com.mallim.dvdrental.domain.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
 
-@Data
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @Entity
 @NoArgsConstructor
+@ToString
+@Getter
+@Setter(value = AccessLevel.PACKAGE)
 public class Film implements Serializable {
 
     @Id
@@ -50,14 +49,17 @@ public class Film implements Serializable {
 
     //bi-directional many-to-one association to FilmActor
     @OneToMany(mappedBy="film")
+    @ToString.Exclude
     private List<FilmActor> filmActors;
 
     //bi-directional many-to-one association to FilmCategory
     @OneToMany(mappedBy="film", fetch = FetchType.LAZY)
+    @ToString.Exclude
     private List<FilmCategory> filmCategories;
 
     //bi-directional many-to-one association to Inventory
     @OneToMany(mappedBy="film", fetch = FetchType.LAZY)
+    @ToString.Exclude
     private List<Inventory> inventories;
 
 }

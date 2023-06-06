@@ -1,9 +1,7 @@
 package com.mallim.dvdrental.domain.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -13,6 +11,9 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "film_category")
+@ToString(exclude = {"category", "film"})
+@Getter
+@Setter(value = AccessLevel.PACKAGE)
 public class FilmCategory implements Serializable {
 
     @Serial

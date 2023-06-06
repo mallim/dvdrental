@@ -1,16 +1,15 @@
 package com.mallim.dvdrental.domain.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 
-@Data
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
+@Getter
+@Setter(value = AccessLevel.PACKAGE)
 public class ActorInfo implements Serializable {
 
     private Long actorId;

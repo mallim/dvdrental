@@ -1,21 +1,20 @@
 package com.mallim.dvdrental.domain.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
 
-@Data
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @Entity
 @NoArgsConstructor
+@ToString(exclude = {"rentals", "film"})
+@Getter
+@Setter(value = AccessLevel.PACKAGE)
 public class Inventory implements Serializable {
 
     @Serial

@@ -17,6 +17,7 @@ public class FilmService {
 
     private final FilmRepository filmRepository;
 
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     private final FilmMapper filmMapper;
 
     public Page<FilmDto> fetchAllFilms(PageRequest pageRequest ) {
@@ -25,13 +26,13 @@ public class FilmService {
 
     public Page<FilmDto> searchMovies(FilmSearchQueryDto filmSearchQueryDto, PageRequest pageRequest) {
         if( filmSearchQueryDto.isValidTitle() && filmSearchQueryDto.isValidActorsName() )
-            return filmRepository.searchMovies(filmSearchQueryDto.getTitle().toLowerCase(), filmSearchQueryDto.getActor().toLowerCase(), pageRequest)
+            return filmRepository.searchMovies(filmSearchQueryDto.title().toLowerCase(), filmSearchQueryDto.actor().toLowerCase(), pageRequest)
                     .map(filmMapper::toDto);
         else if( filmSearchQueryDto.isValidTitle() ) {
-            return filmRepository.searchMoviesForTitle(filmSearchQueryDto.getTitle().toLowerCase(), pageRequest)
+            return filmRepository.searchMoviesForTitle(filmSearchQueryDto.title().toLowerCase(), pageRequest)
                     .map(filmMapper::toDto);
         } else if ( filmSearchQueryDto.isValidActorsName() ) {
-            return filmRepository.searchMoviesForTitle(filmSearchQueryDto.getActor().toLowerCase(), pageRequest)
+            return filmRepository.searchMoviesForTitle(filmSearchQueryDto.actor().toLowerCase(), pageRequest)
                     .map(filmMapper::toDto);
         } else
             throw new RuntimeException("invalid request");
