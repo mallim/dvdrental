@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: <YOUR_JDBC_URL>
-    username: <YOUR_USERNAME>
-    password: <YOUR_PASSWORD>
+    url: jdbc:postgresql://localhost:5432/dvdrental
+    username: postgres
+    password: zaq12wsx
   jpa:
     show-sql: true
 

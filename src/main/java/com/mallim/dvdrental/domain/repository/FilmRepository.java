@@ -7,21 +7,20 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface FilmRepository extends JpaRepository<Film, Long> {
 
     @Query("""
-            select distinct f from Film f 
-            join f.filmActors fa 
-            where f.title like %:title% 
-            and concat(lower(fa.actor.firstName), ' ',lower(fa.actor.lastName)) like %:actorName%
+            select distinct f from Film f \s
+            join f.filmActors fa \s
+            where f.title like %:title% \s
+            and concat(lower(fa.actor.firstName), ' ',lower(fa.actor.lastName)) like %:actorName% \s
             """)
     Page<Film> searchMovies(String title, String actorName, PageRequest pageable);
 
     @Query("""
-            select distinct f from Film f 
-            where lower(f.title) like %:title% 
+            select distinct f from Film f \s
+            where lower(f.title) like %:title% \s
             """)
     Page<Film> searchMoviesForTitle(String title, PageRequest pageable);
 
