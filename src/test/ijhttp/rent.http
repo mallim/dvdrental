@@ -1,4 +1,4 @@
-POST http://localhost:8081/rent
+POST http://{{host}}/rent
 Content-Type: application/json
 
 {
