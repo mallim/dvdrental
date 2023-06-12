@@ -1,0 +1,7 @@
+GET http://{{host}}/actuator
+Content-Type: application/json
+
+###
+
+GET http://{{host}}/actuator/prometheus
+Content-Type: application/json

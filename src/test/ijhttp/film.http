@@ -1,9 +1,9 @@
-GET http://localhost:8081/films
+GET http://{{host}}/films
 Content-Type: application/json
 
 ###
 
-POST http://localhost:8081/films/search
+POST http://{{host}}/films/search
 Content-Type: application/json
 
 {
@@ -12,7 +12,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:8081/films/genres
+POST http://{{host}}/films/genres
 Content-Type: application/json
 
 {
