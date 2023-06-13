@@ -1,6 +1,7 @@
 package com.mallim.dvdrental.film;
 
 import com.mallim.dvdrental.domain.entity.Film;
+import com.mallim.dvdrental.film.dto.ActorFilmDto;
 import com.mallim.dvdrental.film.dto.FilmDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -13,4 +14,7 @@ public interface FilmMapper {
 
     @Mapping(target = "language", source = "language.name")
     FilmDto toDto( Film source ) ;
+
+    @Mapping(target = "language", source = "language.name")
+    ActorFilmDto toActorFilmDto( Film film );
 }

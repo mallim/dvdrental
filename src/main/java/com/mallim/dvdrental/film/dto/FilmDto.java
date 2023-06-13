@@ -1,6 +1,7 @@
 package com.mallim.dvdrental.film.dto;
 
 import java.time.LocalDateTime;
+import java.time.Year;
 import java.util.List;
 
 public record FilmDto ( Integer filmId,
@@ -9,7 +10,7 @@ public record FilmDto ( Integer filmId,
                         LocalDateTime lastUpdate,
                         Integer length,
                         String rating,
-                        String releaseYear,
+                        Year releaseYear,
                         Integer rentalDuration,
                         Double rentalRate,
                         Double replacementCost,

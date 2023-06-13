@@ -1,0 +1,33 @@
+GET http://{{host}}/actors
+Content-Type: application/json
+
+###
+
+GET http://{{host}}/actors/1/films
+Content-Type: application/json
+
+###
+
+GET http://{{host}}/actors/1/films/980
+Content-Type: application/json
+
+###
+
+POST http://{{host}}/actors
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Wick"
+}
+
+###
+
+PATCH http://{{host}}/actors/11
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Wick"
+}
+

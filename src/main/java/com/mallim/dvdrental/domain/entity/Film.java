@@ -1,12 +1,27 @@
 package com.mallim.dvdrental.domain.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.time.Year;
 import java.util.List;
+
+import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Builder(toBuilder = true)
 @AllArgsConstructor
@@ -18,13 +33,14 @@ import java.util.List;
 public class Film implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = IDENTITY)
     private Long filmId;
 
     private String title;
 
     private String description;
 
-    private String releaseYear;
+    private Year releaseYear;
 
     private Integer rentalDuration;
 
@@ -34,7 +50,7 @@ public class Film implements Serializable {
 
     private BigDecimal replacementCost;
 
-    private String rating;
+    private Rating rating;
 
     private Timestamp lastUpdate;
 
@@ -43,7 +59,7 @@ public class Film implements Serializable {
 
     private String fulltext;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="language_id")
     private Language language;
 

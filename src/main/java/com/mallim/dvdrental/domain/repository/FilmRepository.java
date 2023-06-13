@@ -7,23 +7,33 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.stream.Stream;
 
+@SuppressWarnings("ALL")
 public interface FilmRepository extends JpaRepository<Film, Long> {
 
     @Query("""
-            select distinct f from Film f \s
-            join f.filmActors fa \s
-            where f.title like %:title% \s
-            and concat(lower(fa.actor.firstName), ' ',lower(fa.actor.lastName)) like %:actorName% \s
+            select distinct f from Film f 
+            join f.filmActors fa 
+            where f.title like %:title% 
+            and concat(lower(fa.actor.firstName), ' ',lower(fa.actor.lastName)) like %:actorName% 
             """)
     Page<Film> searchMovies(String title, String actorName, PageRequest pageable);
 
     @Query("""
-            select distinct f from Film f \s
-            where lower(f.title) like %:title% \s
+            select distinct f from Film f 
+            where lower(f.title) like %:title% 
             """)
     Page<Film> searchMoviesForTitle(String title, PageRequest pageable);
 
     @Query("select f from Film f join f.filmCategories fc where fc.category.name in (:genres)")
     Page<Film> findAllForGenres(List<String> genres, PageRequest pageRequest);
+
+    @Query(value = """
+        select f.* from film f 
+        inner join film_actor fa 
+        on f.film_id = fa.film_id 
+        where fa.actor_id = :actorId
+    """, nativeQuery = true)
+    Stream<Film> findAllByActor( Integer actorId );
 }
