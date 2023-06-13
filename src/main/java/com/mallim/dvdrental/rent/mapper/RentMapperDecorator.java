@@ -1,6 +1,10 @@
 package com.mallim.dvdrental.rent.mapper;
 
-import com.mallim.dvdrental.domain.entity.*;
+import com.mallim.dvdrental.domain.entity.Customer;
+import com.mallim.dvdrental.domain.entity.Film;
+import com.mallim.dvdrental.domain.entity.Payment;
+import com.mallim.dvdrental.domain.entity.Rental;
+import com.mallim.dvdrental.domain.entity.Staff;
 import com.mallim.dvdrental.rent.RentMovieDto;
 import lombok.RequiredArgsConstructor;
 
