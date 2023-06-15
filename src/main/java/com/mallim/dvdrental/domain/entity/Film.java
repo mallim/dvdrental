@@ -63,6 +63,10 @@ public class Film implements Serializable {
     @JoinColumn(name="language_id")
     private Language language;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="original_language_id")
+    private Language originalLanguage;
+
     //bi-directional many-to-one association to FilmActor
     @OneToMany(mappedBy="film")
     @ToString.Exclude
