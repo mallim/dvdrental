@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="mallim" id="issue_11_add_original_language_id_to_film.1">
+        <addColumn tableName="film">
+            <column name="original_language_id" type="smallint"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>
